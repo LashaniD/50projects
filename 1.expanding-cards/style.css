@@ -1,0 +1,72 @@
+/*multi font from google and setting its display to swap which swaps the display font to given*/
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+*{
+    /*border boc to all elements for consistent box model behavior*/
+    box-sizing: border-box; 
+}
+
+/*styling for overall body*/
+body {
+    font-family: 'Muli', sans-serif; 
+    display: flex;
+    align-items: center; /*vertically*/
+    justify-content: center; /*horizontally*/
+    height: 100vh; /*100% of the viewport height*/
+    overflow: hidden; /*hiding any content that overflows the body*/
+    margin: 0; /*removing default margin*/
+}
+
+/*styling the main conatiner*/
+.container{
+    display: flex;
+    width: 90vw; /*container width to 90% of the viewport width*/
+}
+
+/*styling individual panels within the container*/
+.panel {
+    background-size: cover; /*background img to cover the entire panel*/
+    background-position: center; 
+    background-repeat: no-repeat; /*preventing back img repetition*/
+    height: 80vh; 
+    border-radius: 50px; /*rounded corners*/
+    color: #fff; /*text color*/
+    cursor: pointer; 
+    flex: 0.5; /*initial flex value for panel*/
+    margin: 10px; 
+    position: relative; /*elements are positioned relative to normal position in document*/
+    -webkit-transition: all 700ms ease-in; /*css transition for smooth animation*/
+  }
+  
+  /*styling the heading within each panel*/
+  .panel h3 {
+    font-size: 24px;
+    position: absolute; /*for precise placement*/
+    bottom: 20px; /*distance from the bottom of the panel*/
+    left: 20px;
+    margin: 0;
+    opacity: 0; /*0 for a fade in effect*/
+  }
+  
+  /*styling an active panel*/
+  .panel.active {
+    flex: 5; /*larger when active*/
+  }
+  
+  /*styling heading of an active panel*/
+  .panel.active h3 { 
+    opacity: 1; /*heading visible*/
+    transition: opacity 0.3s ease-in 0.4s; /*delayed transition for a smooth fade-in effect*/
+  }
+  
+  /*for screens with a max width of 480 px*/
+  @media (max-width: 480px) {
+    .container {
+      width: 100vw;
+    }
+    /*hiding 4th and 5th panel on small screens*/
+    .panel:nth-of-type(4),
+    .panel:nth-of-type(5) {
+      display: none;
+    }
+  }

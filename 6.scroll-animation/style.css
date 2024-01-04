@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #003366;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow-x:hidden; /*to have verticle scroll bar*/
+    color: #fff;
+}
+
+.box{
+    background-color: steelblue;
+    margin: 10px;
+    height: 200px;
+    width: 200px;
+    border-radius: 10px;
+    display: flex; /*centre content*/
+    align-items: center;
+    justify-content: center;
+    transform: translateX(400%); /*from left 400 from right -400*/
+    transition: transform 0.5s ease;
+}
+
+/* to alternate the sides the boxes come from*/
+/* alternate between even boxes*/
+.box:nth-of-type(even){
+    transform: translateX(-400%);
+}
+
+.box.show{
+    transform: translateX(0);
+}
+.box h2{
+    color: #fff;
+    font-size: 26px;
+}
+
